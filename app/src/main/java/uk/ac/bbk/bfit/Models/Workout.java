@@ -49,16 +49,18 @@ public class Workout {
      * Duration of the workout in minutes.
      */
     @ColumnInfo(name = "duration")
-    iprivate nt duration = 0;
+    private int duration = 0;
 
     /**
-     * Autoincremented ID of the workouts.
+     * Date in long to allow sort view.
      */
+    //TODO logic display date in human readable format/convert to long
+    //alt string, separate by / then sort by year, month, day
     @ColumnInfo(name = "date")
-    private String date = "";
+    private long date = 0;
 
     /**
-     * Autoincremented ID of the workouts.
+     * A string containing a brief comment describing how well the workout went.
      */
     @ColumnInfo(name = "evaluation")
     private String evaluation = "";
