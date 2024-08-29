@@ -33,20 +33,15 @@ android {
 
 dependencies {
 
-    dependencies {
-        implementation(libs.appcompat)
-        implementation(libs.material)
-        testImplementation(libs.junit)
-        androidTestImplementation(libs.ext.junit)
-        androidTestImplementation(libs.espresso.core)
-
-        // Room dependency
-        implementation("androidx.room:room-runtime:2.6.1")
-        implementation("androidx.room:room-compiler:2.6.1")
-    }
     implementation(libs.appcompat)
     implementation(libs.material)
-    testImplementation(libs.junit)
-    androidTestImplementation(libs.ext.junit)
     androidTestImplementation(libs.espresso.core)
+
+    // Room dependency
+    implementation("androidx.room:room-runtime:2.6.1")
+    implementation("androidx.room:room-compiler:2.6.1")
+
+    // https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter
+    testImplementation("org.junit.jupiter:junit-jupiter:5.11.0")
+
 }
