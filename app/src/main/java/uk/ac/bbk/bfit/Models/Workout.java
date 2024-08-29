@@ -98,20 +98,4 @@ public class Workout {
         this.evaluation = evaluation;
     }
 
-    // Constructor
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 }
