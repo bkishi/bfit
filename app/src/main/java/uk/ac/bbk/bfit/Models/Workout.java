@@ -12,13 +12,13 @@ import androidx.room.PrimaryKey;
 public class Workout {
 
     /**
-     * Autoincremented ID of the workouts.
+     * Autoincrement ID of the workouts.
      */
     @PrimaryKey(autoGenerate = true)
     private int id = 0;
 
     /**
-     * Autoincrement ID of the workouts.
+     * Title of the workout.
      */
     @ColumnInfo(name = "title")
     private String title = "";

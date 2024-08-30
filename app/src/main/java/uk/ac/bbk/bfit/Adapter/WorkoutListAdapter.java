@@ -12,12 +12,10 @@ import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import uk.ac.bbk.bfit.Interface.WorkoutClickListener;
-import uk.ac.bbk.bfit.Model.Workout;
+import uk.ac.bbk.bfit.Models.Workout;
 import uk.ac.bbk.bfit.R;
 
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Random;
 
 public class WorkoutListAdapter extends RecyclerView.Adapter<WorkoutViewHolder> {
     Context context;
@@ -49,8 +47,6 @@ public class WorkoutListAdapter extends RecyclerView.Adapter<WorkoutViewHolder> 
             holder.imageView.setImageResource(0);
         }
 
-        int color_code = getRandomColor();
-        holder.cardView.setCardBackgroundColor(holder.itemView.getResources().getColor(color_code));
 
         holder.cardView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -66,24 +62,6 @@ public class WorkoutListAdapter extends RecyclerView.Adapter<WorkoutViewHolder> 
                 return true;
             }
         });
-    }
-
-    private int getRandomColor(){
-        List<Integer> colorCode = new ArrayList<>();
-        colorCode.add(R.color.color1);
-        colorCode.add(R.color.color2);
-        colorCode.add(R.color.color3);
-        colorCode.add(R.color.color4);
-        colorCode.add(R.color.color5);
-        colorCode.add(R.color.color6);
-        colorCode.add(R.color.color7);
-        colorCode.add(R.color.color8);
-        colorCode.add(R.color.color9);
-
-        Random random = new Random();
-        int random_color = random.nextInt(colorCode.size());
-        return colorCode.get(random_color);
-
     }
 
     @Override
