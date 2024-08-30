@@ -16,7 +16,6 @@ public interface MainDAO {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     void insert(Workout workout);
 
-    // TODO add logic to allow sort view by date or duration
     /**
      * Get all workouts from the database ordered by date.
      *
@@ -25,7 +24,14 @@ public interface MainDAO {
     @Query("SELECT * FROM workouts Order By date DESC")
     List<Workout> getAll();
 
-    @Query("SELECT * FROM workouts Order By duration DESC")
+    // TODO add logic to allow sort view by date or duration
+
+//    @Query("SELECT * FROM workouts ORDER BY " +
+//            "CASE WHEN :sortByDate = 1 THEN date END ASC, " +
+//            "CASE WHEN :sortByDate = 0 THEN duration END ASC, " +
+//            "CASE WHEN :sortByDate = 1 AND :ascending = 0 THEN date END DESC, " +
+//            "CASE WHEN :sortByDate = 0 AND :ascending = 0 THEN duration END DESC")
+//    List<Workout> getAll(boolean sortByDate, boolean ascending);
 
     /**
      * Get a workout by its ID.
