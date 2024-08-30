@@ -21,11 +21,10 @@ public interface MainDAO {
      *
      * @return List of all workouts in the database.
      */
-    @Query("SELECT * FROM workouts Order By date DESC")
-    List<Workout> getAll();
-
-    // TODO add logic to allow sort view by date or duration
-
+//    @Query("SELECT * FROM workouts Order By date DESC")
+//    List<Workout> getAll();
+//
+// TODO add logic to allow sort view by date or duration
 //    @Query("SELECT * FROM workouts ORDER BY " +
 //            "CASE WHEN :sortByDate = 1 THEN date END ASC, " +
 //            "CASE WHEN :sortByDate = 0 THEN duration END ASC, " +

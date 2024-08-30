@@ -8,17 +8,17 @@ import androidx.room.RoomDatabase;
 import android.content.Context;
 
 /**
- * RoomDb is the main database class for the BFit application.
+ * RoomDB is the main database class for the BFit application.
  * It provides an instance of the Room database and the DAO to access the database.
  */
 
-@Database(entities = Workout.class, version = 2, exportSchema = false)
-public abstract class RoomDb extends RoomDatabase {
+@Database(entities = Workout.class, version = 1, exportSchema = false)
+public abstract class RoomDB extends RoomDatabase {
 
     /**
-     * The singleton instance of the RoomDb.
+     * The singleton instance of the RoomDB.
      */
-    private static RoomDb database;
+    private static RoomDB database;
     /**
      * The name of the database.
      */
@@ -28,12 +28,12 @@ public abstract class RoomDb extends RoomDatabase {
      * If the RoomDB instance is null, initializes database.
      *
      * @param context The application context.
-     * @return The singleton instance of the RoomDb.
+     * @return The singleton instance of the RoomDB.
      */
-    public static synchronized RoomDb getInstance(final Context context) {
+    public synchronized static RoomDB getInstance(final Context context) {
         if (database == null) {
             database = Room.databaseBuilder(context.getApplicationContext(),
-                            RoomDb.class, DATABASE_NAME)
+                            RoomDB.class, DATABASE_NAME)
                     .allowMainThreadQueries()
                     .fallbackToDestructiveMigration()
                     .build();
