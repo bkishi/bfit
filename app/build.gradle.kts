@@ -14,6 +14,7 @@ android {
         versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunnerArguments["clearPackageData"] = "true"
     }
 
     buildTypes {
@@ -29,13 +30,20 @@ android {
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8
     }
+
+    tasks.withType<Test> {
+        useJUnitPlatform()
+    }
 }
 
 dependencies {
-
     implementation(libs.appcompat)
     implementation(libs.material)
     androidTestImplementation(libs.espresso.core)
+
+    testImplementation("junit:junit:4.12")
+    androidTestImplementation("androidx.test.ext:junit:1.1.0")
+    androidTestImplementation("androidx.test.espresso:espresso-core:3.1.1")
 
     // Room dependency
     implementation("androidx.room:room-runtime:2.6.1")
@@ -43,5 +51,4 @@ dependencies {
 
     // https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter
     testImplementation("org.junit.jupiter:junit-jupiter:5.11.0")
-
 }

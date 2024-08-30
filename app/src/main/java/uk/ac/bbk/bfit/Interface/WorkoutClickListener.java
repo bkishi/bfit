@@ -21,5 +21,5 @@ public interface WorkoutClickListener {
      * @param workout The workout that was long-pressed.
      * @param cardView The CardView that was long-pressed.
      */
-    void onLongPress(Workout workout, CardView cardView);
+    void onLongClick(Workout workout, CardView cardView);
 }

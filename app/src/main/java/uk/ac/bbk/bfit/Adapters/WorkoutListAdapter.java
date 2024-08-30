@@ -4,7 +4,6 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -41,17 +40,18 @@ public class WorkoutListAdapter extends RecyclerView.Adapter<WorkoutViewHolder> 
         holder.dateTxt.setText(workoutList.get(position).getDate());
         holder.dateTxt.setSelected(true);
 
-        holder.cardView.setOnClickListener(new View.OnClickListener() {
+        holder.workout_container.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 listener.onClick(workoutList.get(holder.getAdapterPosition()));
             }
         });
 
-        holder.cardView.setOnLongClickListener(new View.OnLongClickListener() {
+
+        holder.workout_container.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View view) {
-                listener.onLongPress(workoutList.get(holder.getAdapterPosition()), holder.cardView);
+                listener.onLongClick(workoutList.get(holder.getAdapterPosition()), holder.workout_container);
                 return true;
             }
         });
@@ -69,12 +69,12 @@ public class WorkoutListAdapter extends RecyclerView.Adapter<WorkoutViewHolder> 
 }
 
 class WorkoutViewHolder extends RecyclerView.ViewHolder {
-    CardView cardView;
+    CardView workout_container;
     TextView titleTxt, durationTxt, dateTxt;
 
     public WorkoutViewHolder(@NonNull View itemView) {
         super(itemView);
-        cardView = itemView.findViewById(R.id.workout_container);
+        workout_container = itemView.findViewById(R.id.workout_container);
         titleTxt = itemView.findViewById(R.id.titleTxt);
         durationTxt = itemView.findViewById(R.id.durationTxt);
         dateTxt = itemView.findViewById(R.id.dateTxt);
