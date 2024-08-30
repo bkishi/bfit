@@ -6,29 +6,7 @@ import androidx.room.PrimaryKey;
 
 /**
  * Entity class representing a workout entry in the Room database.
- *
- * <p>Core functionality:</p>
- * <ul>
- *   <li>Create workout entries</li>
- *   <ul>
- *     <li>Each workout entry must have:</li>
- *     <ul>
- *       <li>Title</li>
- *       <li>Duration</li>
- *       <li>Date of workout</li>
- *       <li>Exercise evaluation (a brief comment describing how well the workout went)</li>
- *     </ul>
- *   </ul>
- *   <li>View, edit, and manage workout entries within the app</li>
- *   <ul>
- *     <li>All workouts must be visible in a list within the app</li>
- *     <li>On workout click, user must be able to edit and delete the workout</li>
- *   </ul>
- *   <li>Store and retrieve workout entries locally</li>
- *   <ul>
- *     <li>Workouts must be saved locally in a Room database</li>
- *   </ul>
- * </ul>
+ * Contains the ID, title, duration, date, and evaluation of the workout.
  */
 @Entity(tableName = "Workout")
 public class Workout {
@@ -40,7 +18,7 @@ public class Workout {
     private int id = 0;
 
     /**
-     * Autoincremented ID of the workouts.
+     * Autoincrement ID of the workouts.
      */
     @ColumnInfo(name = "title")
     private String title = "";
