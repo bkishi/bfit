@@ -13,7 +13,7 @@
         android:theme="@style/Theme.Bfit"
         tools:targetApi="31" />
     <activity
-        android:name=".WorkoutTrackerActivity"
+        android:name=".WorkoutFormActivity"
         android:exported="false" />
     <activity />
     <activity
