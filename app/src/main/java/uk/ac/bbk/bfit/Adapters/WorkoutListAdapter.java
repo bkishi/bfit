@@ -1,4 +1,4 @@
-package uk.ac.bbk.bfit.Adapter;
+package uk.ac.bbk.bfit.Adapters;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -31,37 +31,30 @@ public class WorkoutListAdapter extends RecyclerView.Adapter<WorkoutViewHolder> 
     @NonNull
     @Override
     public WorkoutViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        return new WorkoutViewHolder(LayoutInflater.from(context).inflate(R.layout.workoutList,parent,false));
+        return new WorkoutViewHolder(LayoutInflater.from(context).inflate(R.layout.workout_list,parent,false));
     }
 
     @Override
     public void onBindViewHolder(@NonNull WorkoutViewHolder holder, int position) {
         holder.titleTxt.setText(workoutList.get(position).getTitle());
-        holder.workoutTxt.setText(workoutList.get(position).getWorkout());
+        holder.durationTxt.setText(workoutList.get(position).getDuration());
         holder.dateTxt.setText(workoutList.get(position).getDate());
         holder.dateTxt.setSelected(true);
 
-        if (workoutList.get(position).getPinned() == true){
-            holder.imageView.setImageResource(R.drawable.pin);
-        }else {
-            holder.imageView.setImageResource(0);
-        }
+        holder.cardView.setOnClickListener(new View.OnClickListener()) {
+                                               @Override
+                                               public void onClick(View view) {
+                                                   listener.onClick(workoutList.get(holder.getAdapterPosition()));
+                                               }
+                                           }
 
-
-        holder.cardView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                listener.onClick(workoutList.get(holder.getAdapterPosition()));
-            }
-        });
-
-        holder.cardView.setOnLongClickListener(new View.OnLongClickListener() {
-            @Override
-            public boolean onLongClick(View view) {
-                listener.onLongPress(workoutList.get(holder.getAdapterPosition()),holder.cardView);
-                return true;
-            }
-        });
+                holder.cardView.setOnLongClickListener(new View.OnLongClickListener()) {
+                    @Override
+                    public boolean onLongClick(View view) {
+                        listener.onLongPress(workoutList.get(holder.getAdapterPosition()),holder.cardView);
+                        return true;
+                    }
+                }
     }
 
     @Override
@@ -78,14 +71,12 @@ public class WorkoutListAdapter extends RecyclerView.Adapter<WorkoutViewHolder> 
 
 class WorkoutViewHolder extends RecyclerView.ViewHolder{
     CardView cardView;
-    TextView workoutTxt,titleTxt,dateTxt;
-    ImageView imageView;
+    TextView titleTxt, durationTxt, dateTxt;
     public WorkoutViewHolder(@NonNull View itemView) {
         super(itemView);
-        cardView = itemView.findViewById(R.id.note_container);
-        workoutTxt = itemView.findViewById(R.id.workoutTxt);
+        cardView = itemView.findViewById(R.id.workout_container);
         titleTxt = itemView.findViewById(R.id.titleTxt);
+        durationTxt = itemView.findViewById(R.id.durationTxt);
         dateTxt = itemView.findViewById(R.id.dateTxt);
-        imageView = itemView.findViewById(R.id.pinned);
     }
 }
