@@ -1,0 +1,15 @@
+Core functionality:
+a) Create workout entries;
+i) Each workout entry must have
+(1) Title
+(2) Duration
+(3) Date of workout
+(4) Your exercise evaluation. (Which is a brief comment
+describing how well the workout went.)
+b) View, edit, and manage workout entries within the app;
+i) All workouts must be visible in a list within the app
+ii) On workout click, user must be able to edit and delete the workout
+c) Store and retrieve workout entries locally
+i) Workouts must be saved locally in a Room database
+
+

@@ -39,7 +39,7 @@ public interface MainDAO {
      * @param id ID of the workout to retrieve.
      * @return Workout with the specified ID.
      */
-    @Query("SELECT * FROM workouts WHERE id = :id")
+    @Query("SELECT * FROM workout WHERE id = :id")
     Workout getWorkoutById(int id);
 
     /**
@@ -50,7 +50,7 @@ public interface MainDAO {
      * @param duration New duration of the workout.
      * @param date New date of the workout.
      */
-    @Query("UPDATE workouts SET title = :title, duration = :duration, date = :date WHERE id = :id")
+    @Query("UPDATE workout SET title = :title, duration = :duration, date = :date WHERE id = :id")
     void update(int id, String title, int duration, long date);
 
     /**

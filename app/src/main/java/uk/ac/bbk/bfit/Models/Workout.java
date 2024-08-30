@@ -8,7 +8,7 @@ import androidx.room.PrimaryKey;
  * Entity class representing a workout entry in the Room database.
  * Contains the ID, title, duration, date, and evaluation of the workout.
  */
-@Entity(tableName = "Workout")
+@Entity(tableName = "workout")
 public class Workout {
 
     /**
