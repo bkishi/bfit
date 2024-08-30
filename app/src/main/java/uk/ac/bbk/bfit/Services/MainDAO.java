@@ -5,6 +5,8 @@ import androidx.room.Insert;
 import androidx.room.Query;
 import androidx.room.Delete;
 import androidx.room.OnConflictStrategy;
+import java.util.List;
+import java.util.ArrayList;
 
 import uk.ac.bbk.bfit.Models.Workout;
 
@@ -21,8 +23,8 @@ public interface MainDAO {
      *
      * @return List of all workouts in the database.
      */
-//    @Query("SELECT * FROM workouts Order By date DESC")
-//    List<Workout> getAll();
+    @Query("SELECT * FROM workouts Order By date DESC")
+    List<Workout> getAll();
 //
 // TODO add logic to allow sort view by date or duration
 //    @Query("SELECT * FROM workouts ORDER BY " +

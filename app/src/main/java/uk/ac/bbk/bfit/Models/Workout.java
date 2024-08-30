@@ -35,7 +35,7 @@ public class Workout {
     //TODO logic display date in human readable format/convert to long
     //alt string, separate by / then sort by year, month, day
     @ColumnInfo(name = "date")
-    private long date = 0;
+    private String date = "";
 
     /**
      * A string containing a brief comment describing how well the workout went.
@@ -84,7 +84,7 @@ public class Workout {
      *
      * @return the duration of the workout
      */
-    public String getDuration() {
+    public int getDuration() {
         return duration;
     }
 
@@ -93,7 +93,7 @@ public class Workout {
      *
      * @param duration the duration to set
      */
-    public void setDuration(String duration) {
+    public void setDuration(int duration) {
         this.duration = duration;
     }
 
