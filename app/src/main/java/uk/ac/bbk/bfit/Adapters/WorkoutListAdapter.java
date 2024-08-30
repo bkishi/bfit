@@ -15,6 +15,8 @@ import uk.ac.bbk.bfit.Models.Workout;
 import uk.ac.bbk.bfit.R;
 
 import java.util.List;
+import java.util.ArrayList;
+
 
 public class WorkoutListAdapter extends RecyclerView.Adapter<WorkoutViewHolder> {
     Context context;
