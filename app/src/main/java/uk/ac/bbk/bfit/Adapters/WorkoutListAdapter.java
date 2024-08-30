@@ -31,7 +31,7 @@ public class WorkoutListAdapter extends RecyclerView.Adapter<WorkoutViewHolder> 
     @NonNull
     @Override
     public WorkoutViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        return new WorkoutViewHolder(LayoutInflater.from(context).inflate(R.layout.workout_list,parent,false));
+        return new WorkoutViewHolder(LayoutInflater.from(context).inflate(R.layout.workout_list, parent, false));
     }
 
     @Override
@@ -41,20 +41,20 @@ public class WorkoutListAdapter extends RecyclerView.Adapter<WorkoutViewHolder> 
         holder.dateTxt.setText(workoutList.get(position).getDate());
         holder.dateTxt.setSelected(true);
 
-        holder.cardView.setOnClickListener(new View.OnClickListener()) {
-                                               @Override
-                                               public void onClick(View view) {
-                                                   listener.onClick(workoutList.get(holder.getAdapterPosition()));
-                                               }
-                                           }
+        holder.cardView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                listener.onClick(workoutList.get(holder.getAdapterPosition()));
+            }
+        });
 
-                holder.cardView.setOnLongClickListener(new View.OnLongClickListener()) {
-                    @Override
-                    public boolean onLongClick(View view) {
-                        listener.onLongPress(workoutList.get(holder.getAdapterPosition()),holder.cardView);
-                        return true;
-                    }
-                }
+        holder.cardView.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View view) {
+                listener.onLongPress(workoutList.get(holder.getAdapterPosition()), holder.cardView);
+                return true;
+            }
+        });
     }
 
     @Override
@@ -62,16 +62,16 @@ public class WorkoutListAdapter extends RecyclerView.Adapter<WorkoutViewHolder> 
         return workoutList.size();
     }
 
-    public void filterList(List<Workout> filterList){
-        workoutList=filterList;
+    public void filterList(List<Workout> filterList) {
+        workoutList = filterList;
         notifyDataSetChanged();
     }
 }
 
-
-class WorkoutViewHolder extends RecyclerView.ViewHolder{
+class WorkoutViewHolder extends RecyclerView.ViewHolder {
     CardView cardView;
     TextView titleTxt, durationTxt, dateTxt;
+
     public WorkoutViewHolder(@NonNull View itemView) {
         super(itemView);
         cardView = itemView.findViewById(R.id.workout_container);
